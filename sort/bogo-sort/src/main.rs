@@ -1,3 +1,4 @@
+use rand::random;
 use rand::seq::SliceRandom;
 
 fn in_order(numbers: &[i32]) -> bool {
@@ -17,8 +18,15 @@ fn bogo_sort(numbers: &mut [i32]) -> &[i32] {
     return numbers;
 }
 
+fn create_random_array() -> [i32; 10] {
+    let numbers: [i32; 10] = random();
+    return numbers;
+}
+
 fn main() {
-    let mut numbers: [i32; 5] = [3, 1, 5, 2, 4];
+    let mut numbers: [i32; 10] = create_random_array();
+    println!("original: {:?}", numbers);
+
     let sorted = bogo_sort(&mut numbers);
-    println!("{:?}", sorted);
+    println!("sorted: {:?}", sorted);
 }
